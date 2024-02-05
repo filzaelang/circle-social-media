@@ -1,0 +1,44 @@
+{
+    "threads": [
+        {
+            "id": 1,
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin facilisis nisl ac lobortis. Donec tincidunt nunc lacus, sed maximus felis sodales ut. Suspendisse nisl magna, euismod et placerat eu, gravida in mi. Pellentesque non bibendum purus, id fringilla dolor. Nulla pulvinar ornare purus. Vestibulum maximus in lectus vel consequat.",
+            "image": "",
+            "number_of_replies": "Mario",
+            "created_at": "",
+            "created_by": "",
+            "updated_at": "",
+            "updated_by": ""
+        },
+        {
+            "id": 2,
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin facilisis nisl ac lobortis. Donec tincidunt nunc lacus, sed maximus felis sodales ut. Suspendisse nisl magna, euismod et placerat eu, gravida in mi. Pellentesque non bibendum purus, id fringilla dolor. Nulla pulvinar ornare purus. Vestibulum maximus in lectus vel consequat.",
+            "image": "",
+            "number_of_replies": "Mario",
+            "created_at": "",
+            "created_by": "",
+            "updated_at": "",
+            "updated_by": ""
+        },
+        {
+            "id": 3,
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin facilisis nisl ac lobortis. Donec tincidunt nunc lacus, sed maximus felis sodales ut. Suspendisse nisl magna, euismod et placerat eu, gravida in mi. Pellentesque non bibendum purus, id fringilla dolor. Nulla pulvinar ornare purus. Vestibulum maximus in lectus vel consequat.",
+            "image": "",
+            "number_of_replies": "Mario",
+            "created_at": "",
+            "created_by": "",
+            "updated_at": "",
+            "updated_by": ""
+        },
+        {
+            "id": 4,
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin facilisis nisl ac lobortis. Donec tincidunt nunc lacus, sed maximus felis sodales ut. Suspendisse nisl magna, euismod et placerat eu, gravida in mi. Pellentesque non bibendum purus, id fringilla dolor. Nulla pulvinar ornare purus. Vestibulum maximus in lectus vel consequat.",
+            "image": "pp.png",
+            "number_of_replies": "Mario",
+            "created_at": "",
+            "created_by": "",
+            "updated_at": "",
+            "updated_by": ""
+        }
+    ]
+}

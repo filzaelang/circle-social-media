@@ -27,7 +27,7 @@ function Navbar() {
 
     return (
         <Flex as={"nav"} color={"white"} flexDirection={"column"} justify={"space-between"} gap={4} minHeight={sidebarHeight}
-            position={"fixed"}>
+        >
             <Heading as={"h1"} color={"#04a51e"} fontWeight={"Bold"} fontSize={"60px"}>
                 circle
             </Heading>
@@ -71,6 +71,7 @@ function Navbar() {
                         width="100%"
                         backgroundColor="#04a51e"
                         borderRadius={100}
+                        position={"relative"}
                     >
                         Create Post
                     </Button>

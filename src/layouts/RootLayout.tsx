@@ -7,16 +7,45 @@ import Rightbar from "../components/Rightbar"
 
 function RootLayout() {
 
+    // const layoutBase = (
+    //     <Grid templateColumns="repeat(12, 1fr)" bg="gray.50">
+    //         {/* main content*/}
+    //         <GridItem
+    //             as="main"
+    //             bg="#1d1d1d"
+    //             colSpan={{ base: 12, lg: 7, xl: 7 }}
+    //             padding="40px"
+    //             display={{ base: "block", lg: "block", xl: "block" }}
+    //         >
+    //             <Outlet />
+    //         </GridItem>
+
+    //         {/* sidebar */}
+    //         <GridItem
+    //             as="aside"
+    //             colSpan={{ base: 12, lg: 2, xl: 2 }}
+    //             bg="#1d1d1d"
+    //             padding="30px"
+    //             minHeight={{ lg: '100vh' }}
+    //             borderRight="2px solid white"
+    //             display={{ base: "none", lg: "block", xl: "block" }} // Menampilkan sidebar di mode apapun
+    //         >
+    //             <Navbar />
+    //         </GridItem>
+    //     </Grid>
+    // );
+
+
     return (
         <Grid templateColumns="repeat(12, 1fr)" bg="gray.50">
             {/* sidebar */}
             <GridItem
                 as="aside"
-                colSpan={{ base: 12, lg: 3, xl: 3 }}
+                colSpan={{ base: 12, lg: 2, xl: 2 }}
                 bg="#1d1d1d"
                 padding="30px"
                 minHeight={{ lg: '100vh' }}
-                borderRight="2px solid white"
+                borderRight={{ lg: "2px solid white" }}
                 display={{ base: "block", lg: "block", xl: "block" }} // Menampilkan sidebar di mode apapun
             >
                 <Navbar />
@@ -26,7 +55,7 @@ function RootLayout() {
             <GridItem
                 as="main"
                 bg="#1d1d1d"
-                colSpan={{ base: 12, lg: 6, xl: 6 }}
+                colSpan={{ base: 12, lg: 7, xl: 7 }}
                 padding="40px"
                 display={{ base: "block", lg: "block", xl: "block" }}
             >
@@ -36,12 +65,12 @@ function RootLayout() {
             {/* Right bar */}
             <GridItem
                 as={"aside"}
-                colSpan={{ base: 0, lg: 3, xl: 3 }}
+                colSpan={{ base: 12, lg: 3, xl: 3 }}
                 bg="#1d1d1d"
                 paddingTop={"40px"}
-                borderLeft="2px solid white"
-
-                display={{ base: "none", lg: "block", xl: "block" }} // Menampilkan right bar hanya di lg dan xl
+                borderLeft={{ lg: "2px solid white" }}
+                zIndex={3}
+                display={{ base: "block", lg: "block", xl: "block" }} // Menampilkan right bar hanya di lg dan xl
             >
                 <Rightbar />
             </GridItem>

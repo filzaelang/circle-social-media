@@ -1,31 +1,41 @@
-import { Input, Button, Text, Image } from '@chakra-ui/react'
+import { Button, Text, Image, Textarea } from '@chakra-ui/react'
 import { Grid, GridItem } from "@chakra-ui/react"
+import { useState, ChangeEvent } from 'react';
 
 //components
 import { LuImagePlus } from "react-icons/lu";
 
 function FeatureCreatePost() {
+    const [value, setValue] = useState('')
+
+    const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        let inputValue = e.target.value
+        setValue(inputValue)
+    }
+
     return (
-        <Grid templateColumns="repeat(12, 1fr)" bg="#1d1d1d" marginBottom={"10px"}>
+        <Grid templateColumns="repeat(12, 1fr)" bg="#1d1d1d" marginBottom={"10px"} alignItems={"center"}>
             {/* image */}
+
             <GridItem colSpan={1} padding="0" position="relative" zIndex={1}>
                 <Image
                     borderRadius='full'
-                    boxSize='45px'
+                    boxSize={{ xs: "30px", base: "45px" }}
                     src='https://bit.ly/dan-abramov'
                     alt='Dan Abramov'
-                    bottom={"30"}
-                    left={"5"}
                 />
             </GridItem>
 
             {/* Input */}
             <GridItem colSpan={9} position="relative" zIndex={2}>
-                <Input
+                <Textarea
+                    value={value}
+                    onChange={handleInputChange}
                     placeholder='What is happening ?!'
+                    rows={1}
                     color={"white"}
                     border="none"  // Menghilangkan garis
-                    _focus={{ border: 'none' }}  // Menghilangkan garis saat dalam keadaan fokus 
+                    resize="none" // menghilangkan garis miring di pojok kanan
                 />
             </GridItem>
 
@@ -40,6 +50,7 @@ function FeatureCreatePost() {
                     colorScheme="orange"
                     padding="20px"
                     backgroundColor="#04a51e"
+                    borderRadius={100}
                 >
                     <Text>Post</Text>
                 </Button>

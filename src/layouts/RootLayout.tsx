@@ -29,6 +29,15 @@ function RootLayout() {
                 paddingTop={"40px"}
                 colSpan={{ base: 12, lg: 7, xl: 7 }}
                 display={{ base: "block", lg: "block", xl: "block" }}
+                height={"100vh"} overflow={"auto"}
+                sx={{
+                    "&::-webkit-scrollbar": {
+                        width: "0.5em",
+                    },
+                    "&::-webkit-scrollbar-thumb": {
+                        backgroundColor: "#1d1d1d",
+                    },
+                }}
             >
                 <Outlet />
             </GridItem>

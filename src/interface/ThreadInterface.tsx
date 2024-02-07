@@ -7,5 +7,6 @@ export interface IThreadCard {
     content: string;
     posted_at: string;
     likes_count: number;
+    liked: boolean;
     replies_count: number;
 }

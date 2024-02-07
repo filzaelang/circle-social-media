@@ -1,5 +1,5 @@
 import { Flex, Text, Spacer } from '@chakra-ui/react'
-import { Card, CardBody, Button, Image } from '@chakra-ui/react'
+import { Button, Image } from '@chakra-ui/react'
 
 function SugestedAccout() {
     return (

@@ -17,17 +17,17 @@ function FeatureCreatePost() {
         <Grid templateColumns="repeat(12, 1fr)" bg="#1d1d1d" marginBottom={"10px"} alignItems={"center"}>
             {/* image */}
 
-            <GridItem colSpan={1} padding="0" position="relative" zIndex={1}>
+            <GridItem colSpan={{ base: 2, lg: 1, xl: 1 }} padding="0" position="relative" zIndex={1}>
                 <Image
                     borderRadius='full'
-                    boxSize={{ xs: "30px", base: "45px" }}
+                    boxSize={{ base: "33px", lg: "45px", xl: "45px" }}
                     src='https://bit.ly/dan-abramov'
                     alt='Dan Abramov'
                 />
             </GridItem>
 
             {/* Input */}
-            <GridItem colSpan={9} position="relative" zIndex={2}>
+            <GridItem colSpan={{ base: 8, lg: 9, xl: 9 }} position="relative" zIndex={2}>
                 <Textarea
                     value={value}
                     onChange={handleInputChange}
@@ -40,12 +40,12 @@ function FeatureCreatePost() {
             </GridItem>
 
             {/* Image */}
-            <GridItem colSpan={1} position="relative" zIndex={1}>
+            <GridItem colSpan={{ base: 1, lg: 1, xl: 1 }} position="relative" zIndex={1}>
                 <LuImagePlus color='04a51e' fontSize={40} />
             </GridItem>
 
             {/* Button Post */}
-            <GridItem colSpan={1} position="relative" zIndex={2}>
+            <GridItem colSpan={{ base: 1, lg: 1, xl: 1 }} position="relative" zIndex={2}>
                 <Button
                     colorScheme="orange"
                     padding="20px"

@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom"
-import { Grid, GridItem, Text } from "@chakra-ui/react"
+import { Grid, GridItem } from "@chakra-ui/react"
 
 //components
 import Navbar from "../components/Navbar"
+import Rightbar from "../components/Rightbar"
 
 function RootLayout() {
 
@@ -37,11 +38,12 @@ function RootLayout() {
                 as={"aside"}
                 colSpan={{ base: 0, lg: 3, xl: 3 }}
                 bg="#1d1d1d"
-                padding="2"
+                paddingTop={"40px"}
                 borderLeft="2px solid white"
+
                 display={{ base: "none", lg: "block", xl: "block" }} // Menampilkan right bar hanya di lg dan xl
             >
-                <Text color="#ffffff">Rightbar</Text>
+                <Rightbar />
             </GridItem>
         </Grid >
     )

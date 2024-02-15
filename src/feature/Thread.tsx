@@ -1,4 +1,4 @@
-import { Text, Image, Flex, Divider, Box } from '@chakra-ui/react'
+import { Text, Image, Flex, Divider, Box, Avatar } from '@chakra-ui/react'
 import { IThreadCard } from '../interface/ThreadInterface';
 import data from '../mock/json/threadsDummy.json'
 import { useState, useEffect } from 'react';
@@ -8,7 +8,7 @@ import FeatureLikedPost from './FeatureLikedPost';
 import { TbPointFilled } from "react-icons/tb";
 import { BiMessageAltDetail } from "react-icons/bi";
 
-const Thread: React.FC<{ data: IThreadCard }> = () => {
+const Thread = () => {
 
     const [threads, setThreads] = useState<IThreadCard[]>([]);
 
@@ -35,7 +35,7 @@ const Thread: React.FC<{ data: IThreadCard }> = () => {
                     <Divider />
                     <Flex key={index} bg="#1d1d1d" gap={3} mt={"10px"} mb={"10px"}>
                         {/* image */}
-                        <Image borderRadius='full' boxSize={{ base: "30px", md: "45px", lg: "45px", xl: "45px" }} src={thread.picture} bottom="30" left="5" />
+                        <Avatar size={{ base: "sm", md: "md", lg: "md", xl: "md", xxl: "md" }} src={thread.picture} />
                         {/* Thread */}
                         <Flex flexDirection="column">
                             <Flex alignItems={"center"} gap={1}>

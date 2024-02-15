@@ -22,7 +22,7 @@ function RootLayout() {
                 <Navbar />
             </GridItem>
 
-            {/* main content & navbar */}
+            {/* main content */}
             <GridItem
                 as="main"
                 bg="#1d1d1d"

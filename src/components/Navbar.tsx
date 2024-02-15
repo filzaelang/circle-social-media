@@ -81,7 +81,7 @@ function Navbar() {
                 <Spacer />
 
                 {/* ListItem Logout */}
-                <NavLink to="/logout" style={isItemActive("/logout") ? { fontWeight: "bold" } : navItemStyles}>
+                <NavLink to="/register" style={isItemActive("/logout") ? { fontWeight: "bold" } : navItemStyles}>
                     <Flex flexDirection={"row"} gap={3}>
                         <TbLogout2 fontSize={"25px"} style={isItemActive("/logout") ? activeItemStyles : navItemStyles} />
                         <Text fontSize="md">Logout</Text>

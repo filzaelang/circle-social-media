@@ -1,4 +1,4 @@
-import { Button, Text, Image, Textarea } from '@chakra-ui/react'
+import { Button, Text, Image, Textarea, Avatar } from '@chakra-ui/react'
 import { Grid, GridItem } from "@chakra-ui/react"
 import { useState, ChangeEvent } from 'react';
 
@@ -17,25 +17,23 @@ function FeatureCreatePost() {
         <Grid templateColumns="repeat(12, 1fr)" bg="#1d1d1d" marginBottom={"10px"} alignItems={"center"}>
             {/* image */}
 
-            <GridItem colSpan={{ base: 2, lg: 1, xl: 1 }} padding="0" position="relative" zIndex={1}>
-                <Image
-                    borderRadius='full'
-                    boxSize={{ base: "33px", lg: "45px", xl: "45px" }}
+            <GridItem colSpan={{ base: 1, lg: 1, xl: 1 }} padding="0" position="relative" zIndex={1}>
+                <Avatar
+                    size={{ base: "sm", md: "md", lg: "md", xl: "md", xxl: "md" }}
                     src='https://bit.ly/dan-abramov'
-                    alt='Dan Abramov'
+                    name='Dan Abramov'
                 />
             </GridItem>
 
             {/* Input */}
-            <GridItem colSpan={{ base: 8, lg: 9, xl: 9 }} position="relative" zIndex={2}>
+            <GridItem colSpan={{ base: 9, lg: 9, xl: 9 }} position="relative" zIndex={2}>
                 <Textarea
                     value={value}
                     onChange={handleInputChange}
                     placeholder='What is happening ?!'
                     rows={1}
                     color={"white"}
-                    border="none"  // Menghilangkan garis
-                    resize="none" // menghilangkan garis miring di pojok kanan
+                    variant='unstyled'
                 />
             </GridItem>
 

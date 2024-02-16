@@ -1,6 +1,9 @@
+import { Container, Text } from "@chakra-ui/react"
 function Search() {
     return (
-        <div>Search</div>
+        <Container>
+            <Text color={"white"}>Search</Text>
+        </Container>
     )
 }
 

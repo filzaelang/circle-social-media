@@ -7,6 +7,7 @@ import { MdOutlinePersonSearch } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { TbLogout2 } from "react-icons/tb";
+import { FaPlus } from "react-icons/fa";
 
 function Navbar() {
 
@@ -27,16 +28,16 @@ function Navbar() {
 
     return (
         <Container>
-            <Flex as={"nav"} color={"white"} flexDirection={"column"} justify={"space-between"} gap={4} minHeight={sidebarHeight}
+            <Flex as={"nav"} color={"white"} flexDirection={{ base: "row", md: "column", lg: "column", xl: "column" }} justify={"space-between"} gap={4} minHeight={sidebarHeight}
             >
-                <Heading as={"h1"} color={"#04a51e"} fontWeight={"Bold"} fontSize={"60px"}>
+                <Heading as={"h1"} color={"#04a51e"} fontWeight={"Bold"} fontSize={"60px"} display={{ base: "none", md: "block", lg: "block", xl: "block" }}>
                     circle
                 </Heading>
                 {/* ListItem Home */}
                 <NavLink to="/" style={isItemActive("/") ? activeItemStyles : navItemStyles}>
                     <Flex flexDirection={"row"} gap={3}>
                         <RiHome7Line fontSize={"25px"} style={isItemActive("/") ? activeItemStyles : navItemStyles} />
-                        <Text fontSize="md">Home</Text>
+                        <Text fontSize="md" display={{ base: "none", md: "block", lg: "block", xl: "block" }}>Home</Text>
                     </Flex>
                 </NavLink>
 
@@ -44,7 +45,7 @@ function Navbar() {
                 <NavLink to="/search" style={isItemActive("/search") ? { fontWeight: "bold" } : navItemStyles}>
                     <Flex flexDirection={"row"} gap={3}>
                         <MdOutlinePersonSearch fontSize={"25px"} style={isItemActive("/search") ? activeItemStyles : navItemStyles} />
-                        <Text fontSize="md">Search</Text>
+                        <Text fontSize="md" display={{ base: "none", md: "block", lg: "block", xl: "block" }}>Search</Text>
                     </Flex>
                 </NavLink>
 
@@ -52,7 +53,7 @@ function Navbar() {
                 <NavLink to="/follows" style={isItemActive("/follows") ? { fontWeight: "bold" } : navItemStyles}>
                     <Flex flexDirection={"row"} gap={3}>
                         <FaRegHeart fontSize={"25px"} style={isItemActive("/follows") ? activeItemStyles : navItemStyles} />
-                        <Text fontSize="md">Follows</Text>
+                        <Text fontSize="md" display={{ base: "none", md: "block", lg: "block", xl: "block" }}>Follows</Text>
                     </Flex>
                 </NavLink>
 
@@ -60,11 +61,21 @@ function Navbar() {
                 <NavLink to="/profile" style={isItemActive("/profile") ? { fontWeight: "bold" } : navItemStyles}>
                     <Flex flexDirection={"row"} gap={3}>
                         <FaRegCircleUser fontSize={"25px"} style={isItemActive("/profile") ? activeItemStyles : navItemStyles} />
-                        <Text fontSize="md">Profile</Text>
+                        <Text fontSize="md" display={{ base: "none", md: "block", lg: "block", xl: "block" }}>Profile</Text>
                     </Flex>
                 </NavLink>
 
-                <Box>
+                {/* ListItem Create Post */}
+                <NavLink to="/create-post" style={isItemActive("/create-post") ? { fontWeight: "bold" } : navItemStyles}>
+                    <Flex flexDirection={"row"} gap={3} display={{ base: "block", md: "none", lg: "none", xl: "none" }}>
+                        <FaPlus
+                            fontSize={"25px"} fontWeight={"bold"}
+                            style={isItemActive("/create-post") ? activeItemStyles : navItemStyles}
+                        />
+                    </Flex>
+                </NavLink>
+
+                <Box display={{ base: "none", md: "block", lg: "block", xl: "block" }}>
                     <NavLink to="/create-post">
                         <Button
                             colorScheme="orange"
@@ -78,13 +89,13 @@ function Navbar() {
                         </Button>
                     </NavLink>
                 </Box>
-                <Spacer />
+                <Spacer display={{ base: "none", md: "block", lg: "block", xl: "block" }} />
 
                 {/* ListItem Logout */}
                 <NavLink to="/register" style={isItemActive("/logout") ? { fontWeight: "bold" } : navItemStyles}>
                     <Flex flexDirection={"row"} gap={3}>
                         <TbLogout2 fontSize={"25px"} style={isItemActive("/logout") ? activeItemStyles : navItemStyles} />
-                        <Text fontSize="md">Logout</Text>
+                        <Text fontSize="md" display={{ base: "none", md: "block", lg: "block", xl: "block" }}>Logout</Text>
                     </Flex>
                 </NavLink>
             </Flex >

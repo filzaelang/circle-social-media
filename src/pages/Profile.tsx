@@ -1,6 +1,10 @@
+import { Container, Text } from "@chakra-ui/react"
+
 function Profile() {
     return (
-        <div>Profile</div>
+        <Container>
+            <Text color={"white"}>Profile</Text>
+        </Container>
     )
 }
 

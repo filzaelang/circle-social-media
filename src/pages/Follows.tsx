@@ -1,6 +1,10 @@
+import { Container, Text } from "@chakra-ui/react"
+
 function Follows() {
     return (
-        <div>Follows</div>
+        <Container>
+            <Text color={"white"}>Create Post</Text>
+        </Container>
     )
 }
 

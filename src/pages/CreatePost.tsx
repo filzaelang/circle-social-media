@@ -1,6 +1,9 @@
+import { Container, Text } from "@chakra-ui/react"
 function CreatePost() {
     return (
-        <div>Create Post</div>
+        <Container>
+            <Text color={"white"}>Create Post</Text>
+        </Container>
     )
 }
 

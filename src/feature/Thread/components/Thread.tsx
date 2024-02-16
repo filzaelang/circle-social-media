@@ -1,8 +1,8 @@
 import { Text, Image, Flex, Divider, Box, Avatar } from '@chakra-ui/react'
-import { IThreadCard } from '../interface/ThreadInterface';
-import data from '../mock/json/threadsDummy.json'
+import { IThreadCard } from '../../../interface/ThreadInterface';
+import data from '../../../mock/json/threadsDummy.json'
 import { useState, useEffect } from 'react';
-import FeatureLikedPost from './FeatureLikedPost';
+import FeatureLikedPost from '../../FeatureLikedPost';
 
 //icon
 import { TbPointFilled } from "react-icons/tb";

@@ -2,7 +2,7 @@ import { Heading, Flex } from "@chakra-ui/react"
 
 //components
 import FeatureCreatePost from "../feature/FeatureCreatePost"
-import Thread from "../feature/Thread";
+import Thread from "../feature/Thread/components/Thread";
 
 
 function Home() {

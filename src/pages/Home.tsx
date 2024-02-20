@@ -1,7 +1,7 @@
 import { Heading, Flex } from "@chakra-ui/react"
 
 //components
-import FeatureCreatePost from "../feature/FeatureCreatePost"
+import FeatureCreatePost from "../feature/Thread/components/FeatureCreatePost"
 import Thread from "../feature/Thread/components/Thread";
 
 

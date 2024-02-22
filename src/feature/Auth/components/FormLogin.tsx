@@ -2,11 +2,15 @@ import { Input, Text, Button, Flex, Spacer } from "@chakra-ui/react"
 import {
     FormControl
 } from '@chakra-ui/react'
+import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { useLogin } from "../hooks/useLogin"
+import { RootState } from "../../../store/types/rootStates"
 
 
 function FormLogin() {
+    // const auth = useSelector((state: RootState) => state.auth)
+    // console.log(auth)
 
     const { handleChange, handleLogin } = useLogin()
 

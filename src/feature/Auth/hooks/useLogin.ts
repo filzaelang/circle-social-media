@@ -26,9 +26,7 @@ export function useLogin() {
     async function handleLogin() {
         try {
             const response = await API.post("/auth/login", data)
-            console.log(response.data)
             dispatch(AUTH_LOGIN(response.data))
-            console.log(dispatch)
             navigate("/")
         } catch (error) {
             if (axios.isAxiosError(error)) {

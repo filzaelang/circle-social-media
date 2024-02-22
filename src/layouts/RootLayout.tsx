@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import Rightbar from "../components/Rightbar";
 
-function RootLayout() {
+function RootLayout({ children }: { children: React.ReactNode }) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -34,6 +34,7 @@ function RootLayout() {
                         as="main"
                         bg="#1d1d1d"
                         paddingTop={"40px"}
+                        paddingBottom={"60px"}
                         colSpan={{ base: 12, lg: 7, xl: 7 }}
                         display={{ base: "block", lg: "block", xl: "block" }}
                         height={"100vh"} overflow={"auto"}
@@ -46,7 +47,7 @@ function RootLayout() {
                             },
                         }}
                     >
-                        <Outlet />
+                        {children}
                     </GridItem>
 
                     {/* sidebar */}
@@ -103,7 +104,7 @@ function RootLayout() {
                             },
                         }}
                     >
-                        <Outlet />
+                        {children}
                     </GridItem>
                 </>
             )}

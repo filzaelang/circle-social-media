@@ -1,15 +1,15 @@
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../../store/types/rootStates";
+// import { useDispatch, useSelector } from "react-redux"
+// import { RootState } from "../../../store/types/rootStates";
 
 
-export function useThread() {
-    const dispatch = useDispatch()
-    const threads = useSelector((state: RootState) => state.threads.threads)
+// export function useThread() {
+//     const dispatch = useDispatch()
+//     const threads = useSelector((state: RootState) => state.threads.threads)
 
-    return {
-        threads: threads || []
-    }
-}
+//     return {
+//         threads: threads || []
+//     }
+// }
 
 
 // Axios

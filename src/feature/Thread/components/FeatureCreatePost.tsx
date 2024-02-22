@@ -33,6 +33,7 @@ function FeatureCreatePost() {
         try {
             const response = await API.post("/thread", data)
             console.log(response)
+
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 const axiosError = error as AxiosError<{ error: string }>;

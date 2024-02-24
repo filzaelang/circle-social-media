@@ -2,16 +2,18 @@ import { IThreadCard } from "../../interface/ThreadInterface";
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const initialThreadsState: IThreadCard[] = []
+const initialThreadsState: { data: IThreadCard[] } = {
+    data: []
+}
 
 export const threadsSlice = createSlice({
     name: "threads",
     initialState: initialThreadsState,
     reducers: {
-        GET_THREADS: (_, action) => {
+        GET_THREADS: (state, action) => {
             const payload = action.payload
 
-            const thread = payload.map((data: IThreadCard) => {
+            const threads = payload.map((data: IThreadCard) => {
                 return {
                     id: data.id,
                     content: data.content,
@@ -26,19 +28,13 @@ export const threadsSlice = createSlice({
                 }
             })
 
-            return thread
+            state.data = threads
         },
         SET_THREADS_LIKES: (state, action) => {
             const { id, is_liked } = action.payload;
 
-            // Check if payload is an array
-            if (!Array.isArray(state)) {
-                console.error("Payload is not an array:", state);
-                return state;
-            }
-
             // Update the state based on the thread ID
-            return state.map((data: IThreadCard) => {
+            const threads = state.data.map((data: IThreadCard) => {
                 if (data.id === id) {
                     return {
                         ...data,
@@ -50,30 +46,10 @@ export const threadsSlice = createSlice({
                 }
                 return data;
             });
+
+            state.data = threads
         },
     },
 })
 
 export default threadsSlice.reducer;
-
-
-
-// SET_THREAD_LIKE: (
-        //     state,
-        //     action: { payload: { id: number; isLiked: boolean } }
-        // ) => {
-        //     const { id, isLiked } = action.payload;
-
-        //     state.threads = state.threads.map((thread) => {
-        //         if (thread.id === id) {
-        //             return {
-        //                 ...thread,
-        //                 likes_count: isLiked
-        //                     ? thread.likes_count - 1
-        //                     : thread.likes_count + 1,
-        //                 is_liked: !isLiked,
-        //             };
-        //         }
-        //         return thread;
-        //     });
-        // },

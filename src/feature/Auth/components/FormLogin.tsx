@@ -9,9 +9,7 @@ import { RootState } from "../../../store/types/rootStates"
 
 
 function FormLogin() {
-    // const auth = useSelector((state: RootState) => state.auth)
-    // console.log(auth)
-
+    const auth = useSelector((state: RootState) => state.auth)
     const { handleChange, handleLogin } = useLogin()
 
     return (

@@ -1,5 +1,5 @@
 import { Heading, Spacer, Text, Button, Flex, Box, useBreakpointValue, Container } from "@chakra-ui/react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AUTH_LOGOUT } from "../store/rootReducer";
 import { useDispatch } from "react-redux";
 
@@ -13,9 +13,11 @@ import { FaPlus } from "react-icons/fa";
 
 function Navbar() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     async function handleLogout() {
         dispatch(AUTH_LOGOUT());
+        navigate("/login")
     }
 
     const sidebarHeight = useBreakpointValue({ base: "auto", lg: "90vh" });

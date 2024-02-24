@@ -1,60 +1,28 @@
 import { Text, Image, Flex, Divider, Box, Avatar } from '@chakra-ui/react'
 import { IThreadCard } from '../../../interface/ThreadInterface';
-import { useState, useEffect } from 'react';
-// import FeatureLikedPost from './FeatureLikedPost';
-import { API } from '../../../libs/api';
-import { useDispatch, useSelector } from "react-redux"
-import { GET_THREADS } from '../../../store/rootReducer';
-import { SET_THREADS_LIKES } from '../../../store/rootReducer';
+import { useThreads } from '../hooks/useThreads';
+import { useDetailThreads } from '../hooks/useDetailThreads';
 
 //icon
 import { TbPointFilled } from "react-icons/tb";
 import { BiMessageAltDetail } from "react-icons/bi";
-import { RootState } from '../../../store/types/rootStates';
 import { FaHeart } from "react-icons/fa";
 
 const Thread = () => {
-    const dispatch = useDispatch();
-    const threads = useSelector((state: RootState) => state.threads)
-
-    async function getThreads() {
-        try {
-            const response = await API.get("/thread")
-            // setThreads(response.data.data)
-            dispatch(GET_THREADS(response.data))
-        } catch (error) {
-            // setUsers(response.data.data)
-            throw error
-        }
-    }
-
-    async function updateLikesCount(id: number, is_liked: boolean) {
-        try {
-            if (!is_liked) {
-                await API.post("/like", { thread_id: id })
-            } else if (is_liked) {
-                await API.delete(`/like/${id}`)
-            }
-            dispatch(SET_THREADS_LIKES({ id: id, is_liked: is_liked }))
-        } catch (error) {
-            console.error("Error updating likes count:", error);
-            throw error
-        }
-    }
-
-    useEffect(() => {
-        getThreads()
-    }, [dispatch])
-
+    const { threads, updateLikesCount } = useThreads()
+    const { navigateOneThread } = useDetailThreads()
     return (
         <>
             {
-                threads?.map((data: IThreadCard) => (
+                threads.data.map((data: IThreadCard) => (
                     <Box key={data.id}>
                         <Divider />
                         <Flex gap={3} mt={"10px"} mb={"10px"}>
                             {/* image */}
-                            <Avatar size={{ base: "sm", md: "md", lg: "md", xl: "md", xxl: "md" }} src='https://bit.ly/dan-abramov' />
+                            <Avatar
+                                size={{ base: "sm", md: "md", lg: "md", xl: "md", xxl: "md" }}
+                                src={''}
+                            />
                             {/* Thread */}
                             <Flex flexDirection={"column"}>
                                 <Flex alignItems={"center"} gap={1}>
@@ -74,7 +42,7 @@ const Thread = () => {
                                         </Text>
                                         <Text color="#606060" fontSize={"14px"}>{data.number_of_likes}</Text>
                                     </Flex>
-                                    <Flex gap={0.5} alignItems={"center"}>
+                                    <Flex gap={0.5} alignItems={"center"} onClick={() => navigateOneThread(data.id)}>
                                         <BiMessageAltDetail color="#606060" />
                                         <Text color="#606060" fontSize={"14px"}>{data.number_of_replies}</Text>
                                         <Text color="#606060" fontSize={"14px"}>Replies</Text>
@@ -92,6 +60,3 @@ const Thread = () => {
 }
 
 export default Thread;
-
-
-// onClick={() => updateLikesCount(data.id, data.is_liked)}

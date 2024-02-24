@@ -5,7 +5,7 @@ import axios, { AxiosError } from "axios";
 import { useDispatch } from "react-redux";
 import { AUTH_LOGIN } from "../../../store/rootReducer";
 import { useNavigate } from 'react-router-dom';
-
+import { setAuthToken } from "../../../libs/api";
 
 export function useLogin() {
     const navigate = useNavigate()

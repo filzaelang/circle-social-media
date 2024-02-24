@@ -14,6 +14,7 @@ import CreatePost from './pages/CreatePost'
 import LogOut from './pages/LogOut'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import ThreadDetail from './pages/ThreadDetail'
 
 function App() {
   const dispatch = useDispatch()
@@ -21,17 +22,20 @@ function App() {
 
   async function checkAuth() {
     try {
-      const token = localStorage.getItem("token")
-      setAuthToken(token)
-      const response = await API.get("/auth/check")
-      dispatch(AUTH_CHECK(response.data))
+      setAuthToken(localStorage.token);
+      const response = await API.get("/auth/check");
+      dispatch(AUTH_CHECK(response.data));
     } catch (error) {
-      navigate("/login")
+      throw error;
     }
   }
 
   useEffect(() => {
-    checkAuth()
+    if (!localStorage.token) {
+      navigate("/login")
+    } else {
+      checkAuth()
+    }
   }, [])
 
   function isNotLogin() {
@@ -61,6 +65,14 @@ function App() {
             element={
               <RootLayout>
                 <Home />
+              </RootLayout>
+            }
+          />
+          <Route
+            path="/thread/:id"
+            element={
+              <RootLayout>
+                <ThreadDetail />
               </RootLayout>
             }
           />
@@ -117,12 +129,3 @@ function App() {
 }
 
 export default App;
-
-{/* <Route path='/' element={<RootLayout />}>
-        <Route index element={<Home />} />
-        <Route path='/search' element={<Search />} />
-        <Route path='/follows' element={<Follows />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/create-post' element={<CreatePost />} />
-        <Route path='/logout' element={<LogOut />} />
-      </Route> */}

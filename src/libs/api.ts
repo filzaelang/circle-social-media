@@ -11,3 +11,7 @@ export function setAuthToken(token: string | null) {
         delete API.defaults.headers.common["Authorization"]
     }
 }
+
+export function setAuthTokenLogin(token: string | null) {
+    API.defaults.headers.common["Authorization"] = `Bearer ${token}`
+}

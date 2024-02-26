@@ -1,20 +1,21 @@
 import { Text, Image, Flex, Divider, Box, Avatar } from '@chakra-ui/react'
 import { IThreadCard } from '../../../interface/ThreadInterface';
 import { useThreads } from '../hooks/useThreads';
-import { useDetailThreads } from '../hooks/useDetailThreads';
 
 //icon
 import { TbPointFilled } from "react-icons/tb";
 import { BiMessageAltDetail } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const Thread = () => {
     const { threads, updateLikesCount } = useThreads()
-    const { navigateOneThread } = useDetailThreads()
+    const navigate = useNavigate()
+
     return (
         <>
             {
-                threads.data.map((data: IThreadCard) => (
+                threads?.data.map((data: IThreadCard) => (
                     <Box key={data.id}>
                         <Divider />
                         <Flex gap={3} mt={"10px"} mb={"10px"}>
@@ -42,7 +43,7 @@ const Thread = () => {
                                         </Text>
                                         <Text color="#606060" fontSize={"14px"}>{data.number_of_likes}</Text>
                                     </Flex>
-                                    <Flex gap={0.5} alignItems={"center"} onClick={() => navigateOneThread(data.id)}>
+                                    <Flex gap={0.5} alignItems={"center"} onClick={() => navigate(`/thread/${data.id}`)}>
                                         <BiMessageAltDetail color="#606060" />
                                         <Text color="#606060" fontSize={"14px"}>{data.number_of_replies}</Text>
                                         <Text color="#606060" fontSize={"14px"}>Replies</Text>

@@ -1,38 +1,40 @@
 import { Button, Text, Avatar, Input } from '@chakra-ui/react'
 import { Grid, GridItem, FormControl } from "@chakra-ui/react"
-import { useThreads } from '../hooks/useThreads';
-
+import { useReply } from '../hooks/useReply';
 
 //components
 import { LuImagePlus } from "react-icons/lu";
 
-function CreateThread() {
-    const { handleChange, handlePostThread, fileInputRef } = useThreads()
+interface RepliesProps {
+    id: number;
+}
+
+export default function CreateReply({ id }: RepliesProps) {
+    const { handleChange, handlePostReply, fileInputRef } = useReply(id)
 
     return (
         <>
-            <Grid templateColumns="repeat(12, 1fr)" bg="#1d1d1d" marginBottom={"10px"} alignItems={"center"}>
+            <Grid templateColumns="repeat(12, 1fr)" mt={'15px'} mb={"15px"} ms={"10px"} me={"10px"} alignItems={"center"}>
                 {/* image */}
 
                 <GridItem colSpan={{ base: 1, lg: 1, xl: 1 }} padding="0" position="relative" zIndex={1}>
                     <Avatar
                         size={{ base: "sm", md: "md", lg: "md", xl: "md", xxl: "md" }}
-                        src={'https://bit.ly/dan-abramov'}
-                        name='Dan Abramov'
+                        src={''}
                     />
                 </GridItem>
 
                 <GridItem colSpan={{ base: 11, lg: 11, xl: 11 }} position="relative" zIndex={2}>
-                    <form onSubmit={handlePostThread} encType='multipart/form-data'>
+                    <form onSubmit={handlePostReply} encType='multipart/form-data'>
                         <FormControl>
                             <Grid
-                                templateColumns="repeat(10, 1fr)" // Adjust the number based on your layout requirements
-                                gap={4} // Adjust the gap as needed
+                                templateColumns="repeat(12, 1fr)"
+                                gap={4}
                             >
                                 {/* Input */}
-                                <GridItem colSpan={{ base: 8, lg: 8, xl: 8 }} position="relative">
+                                <GridItem colSpan={{ base: 9, lg: 9, xl: 9 }} position="relative">
                                     <Input
-                                        placeholder='What is happening ?!'
+                                        placeholder='Type yor reply!'
                                         name='content'
                                         id='content'
                                         color={"white"}
@@ -76,5 +78,3 @@ function CreateThread() {
         </>
     )
 }
-
-export default CreateThread

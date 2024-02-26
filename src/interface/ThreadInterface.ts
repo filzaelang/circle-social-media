@@ -1,5 +1,6 @@
 import { IUser } from "./UserInterface";
 import { ILike } from "./LikeInterface";
+import { IReply } from "./ReplyInterface";
 
 export interface IThreadPost {
     content: string;

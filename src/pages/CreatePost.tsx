@@ -1,9 +1,11 @@
-import { Container, Text } from "@chakra-ui/react"
+import CreateThread from "../feature/Thread/components/CreateThread"
+import { Flex } from "@chakra-ui/react"
+
 function CreatePost() {
     return (
-        <Container>
-            <Text color={"white"}>Create Post</Text>
-        </Container>
+        <Flex flexDirection={"column"} wrap={"wrap"} paddingLeft={"30px"} paddingRight={"30px"}>
+            <CreateThread />
+        </Flex>
     )
 }
 

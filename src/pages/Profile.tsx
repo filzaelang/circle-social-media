@@ -1,5 +1,4 @@
 import {
-    Container,
     Text,
     Card,
     CardBody,
@@ -8,14 +7,18 @@ import {
     Image,
     Avatar,
     Stack,
-    Button,
-
 } from "@chakra-ui/react"
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import EditProfile from "../feature/UserProfile/components/EditProfile"
+import UserThreads from "../feature/Thread/components/UserThreads"
+import { useSelector, useDispatch } from "react-redux"
+import { RootState } from "../store/types/rootStates"
 
 function Profile() {
+    const user = useSelector((state: RootState) => state.auth)
     return (
-        <Container>
-            <Card bg="#1d1d1d" >
+        <>
+            <Card bg="#1d1d1d" ms={"10px"} me={"10px"}>
                 <CardBody bg={"#262626"} borderRadius={"20px"}>
                     <Heading as={"h3"} fontSize={"md"} color={"white"}>My Profile</Heading>
                     <Flex flexDirection='column' marginTop={"10px"} mb={4}>
@@ -29,7 +32,7 @@ function Profile() {
                         <Avatar
                             size={"lg"}
                             name='Photo Profile'
-                            src='https://bit.ly/dan-abramov'
+                            src={user.data.photo_profile ? user.data.photo_profile : ''}
                             position={"relative"}
                             bottom={"30"}
                             left={"5"}
@@ -37,17 +40,17 @@ function Profile() {
                         />
                     </Flex>
                     <Stack spacing='0.5' marginTop={"-10"}>
-                        <Text color={"white"} fontSize={"xl"} fontWeight={"bold"}>Filza Elang Buana</Text>
-                        <Text color={"#606060"}>@filzaelang</Text>
-                        <Text color={"white"}>Disana gunung disini gunung ditengah-tengahnya</Text>
+                        <Text color={"white"} fontSize={"xl"} fontWeight={"bold"}>{user.data.full_name}</Text>
+                        <Text color={"#606060"}>@{user.data.username}</Text>
+                        <Text color={"white"}>{user.data.description}</Text>
                         <Flex>
                             <Flex gap={3}>
                                 <Flex gap={0.5}>
-                                    <Text color={"white"}>23</Text>
+                                    <Text color={"white"}>{user.data.following_count}</Text>
                                     <Text color={"#606060"}>Following</Text>
                                 </Flex>
                                 <Flex gap={0.5}>
-                                    <Text color={"white"}>21</Text>
+                                    <Text color={"white"}>{user.data.followers_count}</Text>
                                     <Text color={"#606060"}>Follower</Text>
                                 </Flex>
                             </Flex>
@@ -55,7 +58,24 @@ function Profile() {
                     </Stack>
                 </CardBody>
             </Card >
-        </Container>
+            <Tabs isFitted variant='enclosed' mt={"10px"}>
+                <TabList>
+                    <Tab color={"white"}>Threads</Tab>
+                    <Tab color={"white"}>Edit Profile</Tab>
+                </TabList>
+
+                <TabPanels>
+                    <TabPanel>
+                        <UserThreads />
+                    </TabPanel>
+                    <TabPanel>
+                        <Card bg="#1d1d1d" ms={"10px"} me={"10px"}>
+                            <EditProfile />
+                        </Card >
+                    </TabPanel>
+                </TabPanels>
+            </Tabs>
+        </>
     )
 }
 

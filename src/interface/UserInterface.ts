@@ -6,7 +6,7 @@ export interface IUser {
     photo_profile?: string;
     description?: string;
     followers_count?: number;
-    followings_count?: number;
+    following_count?: number;
 }
 
 export interface IUserRegister {

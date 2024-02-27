@@ -1,7 +1,10 @@
 import { Heading, Flex, Image, Text } from '@chakra-ui/react'
 import { Card, CardBody, Stack, Button, Avatar } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store/types/rootStates'
 
 function MyProfile() {
+    const user = useSelector((state: RootState) => state.auth)
 
     return (
 
@@ -19,7 +22,7 @@ function MyProfile() {
                     <Avatar
                         size={"lg"}
                         name='Photo Profile'
-                        src='https://bit.ly/dan-abramov'
+                        src={user.data.photo_profile ? user.data.photo_profile : ''}
                         position={"relative"}
                         bottom={"30"}
                         left={"5"}
@@ -37,17 +40,17 @@ function MyProfile() {
                     >
                         <Text fontSize={"10px"} color={"white"}>Edit Profile</Text>
                     </Button>
-                    <Text color={"white"} fontSize={"xl"} fontWeight={"bold"}>Filza Elang Buana</Text>
-                    <Text color={"#606060"}>@filzaelang</Text>
-                    <Text color={"white"}>Disana gunung disini gunung ditengah-tengahnya</Text>
+                    <Text color={"white"} fontSize={"xl"} fontWeight={"bold"}>{user.data.full_name}</Text>
+                    <Text color={"#606060"}>@{user.data.username}</Text>
+                    <Text color={"white"}>{user.data.description}</Text>
                     <Flex>
                         <Flex gap={3}>
                             <Flex gap={0.5}>
-                                <Text color={"white"}>23</Text>
+                                <Text color={"white"}>{user.data.following_count}</Text>
                                 <Text color={"#606060"}>Following</Text>
                             </Flex>
                             <Flex gap={0.5}>
-                                <Text color={"white"}>21</Text>
+                                <Text color={"white"}>{user.data.followers_count}</Text>
                                 <Text color={"#606060"}>Follower</Text>
                             </Flex>
                         </Flex>

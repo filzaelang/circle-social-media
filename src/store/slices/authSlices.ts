@@ -10,6 +10,8 @@ const initialAuthState: { data: IUser } = {
         email: "",
         photo_profile: "",
         description: "",
+        followers_count: 0,
+        following_count: 0,
     }
 };
 
@@ -28,7 +30,9 @@ export const authSlice = createSlice({
                 full_name: payload.obj.full_name,
                 email: payload.obj.email,
                 photo_profile: payload.obj.photo_profile,
-                description: payload.obj.description
+                description: payload.obj.description,
+                followers_count: payload.obj.followers_count,
+                following_count: payload.obj.following_count,
             };
 
             state.data = user
@@ -41,7 +45,25 @@ export const authSlice = createSlice({
                 full_name: payload.check.full_name,
                 email: payload.check.email,
                 photo_profile: payload.check.photo_profile,
-                description: payload.check.description
+                description: payload.check.description,
+                followers_count: payload.check.followers_count,
+                following_count: payload.check.following_count,
+            };
+
+            state.data = user
+        },
+        SET_FOLLOW: (state, action) => {
+            const payload = action.payload
+            console.log(payload)
+            const user: IUser = {
+                id: payload.check.id,
+                username: payload.check.username,
+                full_name: payload.check.full_name,
+                email: payload.check.email,
+                photo_profile: payload.check.photo_profile,
+                description: payload.check.description,
+                followers_count: payload.check.followers_count,
+                following_count: payload.check.following_count,
             };
 
             state.data = user
@@ -58,7 +80,7 @@ export const authSlice = createSlice({
                 photo_profile: '',
                 description: '',
                 followers_count: 0,
-                followings_count: 0,
+                following_count: 0,
             };
         },
     },

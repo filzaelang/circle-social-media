@@ -9,12 +9,12 @@ import {
     Stack,
 } from "@chakra-ui/react"
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import UserThreads from "../feature/Thread/components/UserThreads"
-import { useSelector } from "react-redux"
-import { RootState } from "../store/types/rootStates"
+import { OtherUserThreads } from "../feature/Thread/components/UserThreads"
+import { useProfileOthers } from "../feature/UserProfile/hooks/useProfileOthers"
 
 function ProfileOthers() {
-    const user = useSelector((state: RootState) => state.auth)
+    const { user } = useProfileOthers()
+
     return (
         <>
             <Card bg="#1d1d1d" ms={"10px"} me={"10px"}>
@@ -31,7 +31,7 @@ function ProfileOthers() {
                         <Avatar
                             size={"lg"}
                             name='Photo Profile'
-                            src={user.data.photo_profile ? user.data.photo_profile : ''}
+                            src={user?.photo_profile ? user?.photo_profile : ''}
                             position={"relative"}
                             bottom={"30"}
                             left={"5"}
@@ -39,17 +39,17 @@ function ProfileOthers() {
                         />
                     </Flex>
                     <Stack spacing='0.5' marginTop={"-10"}>
-                        <Text color={"white"} fontSize={"xl"} fontWeight={"bold"}>{user.data.full_name}</Text>
-                        <Text color={"#606060"}>@{user.data.username}</Text>
-                        <Text color={"white"}>{user.data.description}</Text>
+                        <Text color={"white"} fontSize={"xl"} fontWeight={"bold"}>{user?.full_name}</Text>
+                        <Text color={"#606060"}>@{user?.username}</Text>
+                        <Text color={"white"}>{user?.description}</Text>
                         <Flex>
                             <Flex gap={3}>
                                 <Flex gap={0.5}>
-                                    <Text color={"white"}>{user.data.following_count}</Text>
+                                    <Text color={"white"}>{user?.following_count}</Text>
                                     <Text color={"#606060"}>Following</Text>
                                 </Flex>
                                 <Flex gap={0.5}>
-                                    <Text color={"white"}>{user.data.followers_count}</Text>
+                                    <Text color={"white"}>{user?.followers_count}</Text>
                                     <Text color={"#606060"}>Follower</Text>
                                 </Flex>
                             </Flex>
@@ -64,7 +64,7 @@ function ProfileOthers() {
 
                 <TabPanels>
                     <TabPanel>
-                        <UserThreads />
+                        <OtherUserThreads />
                     </TabPanel>
                 </TabPanels>
             </Tabs>

@@ -28,7 +28,7 @@ const Thread = () => {
                             <Flex flexDirection={"column"}>
                                 <Flex alignItems={"center"} gap={1}>
                                     <Text
-                                        onClick={() => navigate(`/profile/user/${data.id}`)}
+                                        onClick={() => navigate(`/profile/${data.created_by?.id}`)}
                                         color="white"
                                         fontWeight="bold"
                                         fontSize={"14px"}>

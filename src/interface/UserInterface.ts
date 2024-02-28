@@ -42,3 +42,16 @@ export interface IUserLogin {
 export interface IUserSearch {
     username?: string | undefined;
 }
+
+// export interface IUserProfile {
+//     id?: number;
+//     username?: string;
+//     full_name?: string;
+//     email?: string;
+//     photo_profile?: string | undefined;
+//     description?: string;
+//     follower?: any;
+//     following?: any;
+//     followers_count?: number;
+//     following_count?: number;
+// }

@@ -102,7 +102,7 @@ function App() {
             }
           />
           <Route
-            path="/profile/user"
+            path="/profile/:id"
             element={
               <RootLayout>
                 <ProfileOthers />

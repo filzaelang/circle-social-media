@@ -52,6 +52,15 @@ export const authSlice = createSlice({
 
             state.data = user
         },
+        AUTH_UPDATE: (state, action) => {
+            const { description, full_name, photo_profile } = action.payload;
+
+            state.data.description = description
+            state.data.full_name = full_name
+            if (photo_profile && typeof photo_profile === 'string' && photo_profile.trim() !== '') {
+                state.data.photo_profile = photo_profile
+            }
+        },
         SET_FOLLOW: (state, action) => {
             const payload = action.payload
             console.log(payload)

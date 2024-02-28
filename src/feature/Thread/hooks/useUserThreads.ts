@@ -23,7 +23,7 @@ export function useUserThreads() {
 
     useEffect(() => {
         getUserThreads()
-    }, [dispatch])
+    }, [])
 
     return {
         userThreads

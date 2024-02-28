@@ -5,7 +5,7 @@ import {
     Input,
     InputGroup, InputLeftElement, Avatar, Text, Spacer, Button
 } from '@chakra-ui/react';
-import { IUser } from '../../../interface/UserInterface';
+import { IUserSearchResult } from '../../../interface/UserInterface';
 import useSearchUser from '../hooks/useSearchUser';
 
 // icon
@@ -37,12 +37,12 @@ export default function SearchUser() {
                     </InputGroup>
                 </FormControl>
             </Flex>
-            {searchResults?.map((data: IUser) => (
+            {searchResults?.map((data: IUserSearchResult) => (
                 <Flex gap={3} mt={"15px"} mb={"15px"} key={data.id}>
                     {/* image */}
                     <Avatar
                         size={{ base: "sm", md: "md", lg: "md", xl: "md", xxl: "md" }}
-                        src={''}
+                        src={data.photo_profile}
                     />
                     <Flex flexDirection={"column"}>
                         <Text color={"white"}>{data.full_name}</Text>
@@ -50,7 +50,7 @@ export default function SearchUser() {
                         <Text color={"white"}>{data.description}</Text>
                     </Flex>
                     <Spacer />
-                    <Button>Follow</Button>
+                    <Button>{data.is_followed ? "Following" : "Follow"}</Button>
                 </Flex>
             ))}
         </>

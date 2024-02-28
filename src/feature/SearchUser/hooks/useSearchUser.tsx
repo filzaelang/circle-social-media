@@ -11,7 +11,6 @@ export default function useSearchUser() {
     async function handleSearch(query: any) {
         try {
             const response = await API.post(`/user`, { username: query });
-            // console.log(response.data)
             setSearchResults(response.data)
         } catch (error) {
             console.error("Error searching users:", error);

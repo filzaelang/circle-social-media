@@ -11,7 +11,7 @@ import {
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import EditProfile from "../feature/UserProfile/components/EditProfile"
 import UserThreads from "../feature/Thread/components/UserThreads"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { RootState } from "../store/types/rootStates"
 
 function Profile() {

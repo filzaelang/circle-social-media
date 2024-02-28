@@ -48,7 +48,7 @@ export function useEditProfile() {
 
         try {
             const response = await API.patch("/user/detail", formData);
-            console.log("Success post thread :", response);
+            console.log("Success edit profile :", response);
             dispatch(AUTH_UPDATE(form))
         } catch (error) {
             console.error("Error posting thread:", error);

@@ -27,7 +27,13 @@ const Thread = () => {
                             {/* Thread */}
                             <Flex flexDirection={"column"}>
                                 <Flex alignItems={"center"} gap={1}>
-                                    <Text color="white" fontWeight="bold" fontSize={"14px"}>{data.created_by?.full_name}</Text>
+                                    <Text
+                                        onClick={() => navigate(`/profile/user/${data.id}`)}
+                                        color="white"
+                                        fontWeight="bold"
+                                        fontSize={"14px"}>
+                                        {data.created_by?.full_name}
+                                    </Text>
                                     <Text color="#606060" fontSize={"14px"}>@{data.created_by?.username}</Text>
                                     <TbPointFilled color="#606060" fontSize={"14px"} />
                                     <Text color="#606060" fontSize={"14px"}>{data.created_at}</Text>

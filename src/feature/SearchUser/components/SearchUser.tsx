@@ -13,7 +13,7 @@ import { RiUserSearchLine } from "react-icons/ri";
 
 export default function SearchUser() {
 
-    const { handleChange, searchResults, searchQuery } = useSearchUser()
+    const { handleChange, searchResults, searchQuery, handleFollow } = useSearchUser()
 
     return (
         <>
@@ -50,7 +50,7 @@ export default function SearchUser() {
                         <Text color={"white"}>{data.description}</Text>
                     </Flex>
                     <Spacer />
-                    <Button>{data.is_followed ? "Following" : "Follow"}</Button>
+                    <Button onClick={() => handleFollow(data.id, data.is_followed)}>{data.is_followed ? "Following" : "Follow"}</Button>
                 </Flex>
             ))}
         </>

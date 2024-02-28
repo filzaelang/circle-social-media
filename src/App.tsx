@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Search from './pages/Search'
 import Follows from './pages/Follows'
 import Profile from './pages/Profile'
+import ProfileOthers from './pages/ProfileOthers'
 import CreatePost from './pages/CreatePost'
 import LogOut from './pages/LogOut'
 import Login from './pages/Login'
@@ -97,6 +98,14 @@ function App() {
             element={
               <RootLayout>
                 <Profile />
+              </RootLayout>
+            }
+          />
+          <Route
+            path="/profile/user"
+            element={
+              <RootLayout>
+                <ProfileOthers />
               </RootLayout>
             }
           />
